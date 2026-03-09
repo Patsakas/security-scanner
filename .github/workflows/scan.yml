@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/patsakas/security-scanner:latest
 
       - name: Login to Dockerhub
         uses: docker/login-action@v3
@@ -40,7 +40,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves,recommendations,sbom
-          image: ghcr.io/${{ github.repository }}:latest
+          image: ghcr.io/patsakas/security-scanner:latest
           exit-code: false
           sarif-file: sca_scout.sarif
 
